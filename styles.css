@@ -26,8 +26,30 @@
 }
 
 
+#pagination {
+  margin-top: 1rem;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
 
+#pagination a {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  &:hover, &:focus {
+    background-color: var(--primary);}
 
+  &:active {
+    background-color: var(--primary-light);
+  }
+}
 
 
 
@@ -90,7 +112,6 @@ h1 + p {
 
 /* Header */
 header {
-  border-bottom: 1px solid var(--border);
   background: var(--background);
   padding: .5rem 1rem;
   display: flex;
@@ -267,7 +288,6 @@ main > section:nth-child(2) > div > div:first-child > p {
 main > section:nth-child(2) footer {
   display: flex;
   flex-direction: column;
-  gap: 16px
 }
 
 /* Feature Cards */
@@ -299,7 +319,6 @@ main > section:nth-child(2) footer {
 /* Footer */
 footer {
   background-color: var(--background);
-  border-top: 1px solid var(--border);
   text-align: center;
   padding: 16px;
 
@@ -310,11 +329,9 @@ footer {
 }
 
 article {
-  background-color: var(--card-bg);
+  background-color: var(--background);
   padding: 2rem;
-  margin-bottom: 16px;
-  border-radius: 0.5rem;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+  border: var(--input-bg) 1px solid;
   display: flex;
   p {
     color: var(--text-muted);
@@ -367,3 +384,4 @@ select{
   }
 
 }
+

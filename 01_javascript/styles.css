@@ -64,7 +64,31 @@ body {
 
 
 
+select {
+  padding: 0.625rem 1.25rem;
+  background-color: #242d3a;
+  border: 0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: all 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  padding-right: 2.5rem;
 
+  &:hover {
+    background-color: var(--primary-hover);
+    color: white;
+  }
+
+  &:focus {
+    outline: 2px solid #1173d4;
+    outline-offset: 2px;
+  }
+}
 
 
 
@@ -110,24 +134,6 @@ header {
     font-weight: 700;
     color: var(--text-primary);
   }
-
-  div {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .search-bar {
-    padding-top: 0;
-    padding-bottom: 0 ;
-  }
-}
-
-#profile-picture {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  object-fit: cover;
 }
 
 /* Navegación del header a otras páginas */
@@ -412,16 +418,20 @@ article {
   border: 1px solid rgba(255, 255, 255, .3);
   border-radius: 1rem;
 
-  article {
+  .job-listing-card {
     background: none;
     box-shadow: none;
     border-radius: 0;
     border-bottom: 1px solid rgba(255, 255, 255, .3);
     margin: 0;
 
-    display: flex;
+    display: flex; /* valor original */
     align-items: start;
     gap: 1rem;
+
+    &.is-hidden {
+      display: none;
+    }
 
     small {
       font-size: .875rem;

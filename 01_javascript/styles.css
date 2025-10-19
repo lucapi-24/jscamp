@@ -110,6 +110,24 @@ header {
     font-weight: 700;
     color: var(--text-primary);
   }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    padding-top: 0;
+    padding-bottom: 0 ;
+  }
+}
+
+#profile-picture {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Navegación del header a otras páginas */

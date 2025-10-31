@@ -1,31 +1,24 @@
-import {Footer} from "./components/Footer.jsx";
+import { Footer } from "./components/Footer.jsx";
+import { Header } from "./components/Header.jsx";
+import { Pagination } from "./components/Pagination.jsx";
 
-function App() {
-
+function JobListing(){
   return (
     <>
-    <header>
-    <h1>
-      <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <polyline points="16 18 22 12 16 6"></polyline>
-        <polyline points="8 6 2 12 8 18"></polyline>
-      </svg>
-      DevJobs
-    </h1>
+      <h2>Resultados de búsqueda</h2>
 
-    <nav>
-      <a href="">Empleos</a>
-    </nav>
+      <div className="jobs-listings">
+      </div>
+    </>
+  )
+}
 
-  </header>
-
-  <main>
+function SearchFormSection(){
+  return (
     <section className="jobs-search">
-      <h1>Encuentra tu próximo trabajo</h1>
+    <h1>Encuentra tu próximo trabajo</h1>
       <p>Explora miles de oportunidades en el sector tecnológico.</p>
-
-      <form id="empleos-search-form" role="search">
+    <form id="empleos-search-form" role="search">
         <div className="search-bar">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"
@@ -76,34 +69,23 @@ function App() {
           </select>
         </div>
       </form>
-
       <span id="filter-selected-value"></span>
-    </section>
+    </section>)
+}
 
+function App() {
+  const handlePageChange = (page) => {
+    console.log("Página cambiada a:", page);
+  }
+  return (
+    <>
+    <Header />
+
+  <main>
+      <SearchFormSection />
     <section>
-      <h2>Resultados de búsqueda</h2>
-
-      <div className="jobs-listings">
-      </div>
-
-      <nav className="pagination">
-        <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-            strokeLinecap="round" strokeLinejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M15 6l-6 6l6 6" />
-          </svg></a>
-        <a className="is-active" href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
-            strokeLinecap="round" strokeLinejoin="round"
-            className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M9 6l6 6l-6 6" />
-          </svg></a>
-      </nav>
+      <JobListing />
+      <Pagination currentPage={2} totalPages={5} onPageChange={handlePageChange}/>
     </section>
   </main>
 

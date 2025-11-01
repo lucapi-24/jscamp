@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { Footer } from "./components/Footer.jsx";
 import { Header } from "./components/Header.jsx";
 import { Pagination } from "./components/Pagination.jsx";
+import { JobListings } from "./components/JobListings.jsx";
+import { JobCard } from "./components/JobCard.jsx";
+
+import jobsData from "./data.json";
 
 function JobListing(){
   return (
@@ -74,8 +79,12 @@ function SearchFormSection(){
 }
 
 function App() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 5;
+
   const handlePageChange = (page) => {
     console.log("Página cambiada a:", page);
+    setCurrentPage(page);
   }
   return (
     <>
@@ -84,8 +93,8 @@ function App() {
   <main>
       <SearchFormSection />
     <section>
-      <JobListing />
-      <Pagination currentPage={2} totalPages={5} onPageChange={handlePageChange}/>
+      <JobListing jobs={jobsData}/>
+      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
     </section>
   </main>
 
